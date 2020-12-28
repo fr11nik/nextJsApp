@@ -3,13 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "start": "next start",
+    "debug": "NODE_OPTIONS='--inspect' next",
     "build": "next build",
-    "start": "next start"
+    "dev": "next dev"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "cookie-parser": "^1.4.5",
     "next": "10.0.4",
+    "notistack": "^1.0.3",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "universal-cookie": "^4.0.4"
   }
 }

@@ -1,0 +1,9 @@
+.header {
+  font-family: 'Oswald', sans-serif;
+  width: 100%;
+  background-color: #272a2e;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}

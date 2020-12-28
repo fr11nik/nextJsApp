@@ -1,0 +1,18 @@
+.mainlogo {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  font-weight: 400;
+  font-size: 18px;
+}
+.mainlogo:hover {
+  color: #4270ad;
+  cursor: pointer;
+}
+.logo-wrapper {
+  padding: 25px 50px;
+  text-align: center;
+}
+.logo:hover {
+  text-decoration: none !important;
+}

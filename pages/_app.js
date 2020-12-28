@@ -1,7 +1,8 @@
-import '../styles/globals.css'
+import App from 'next/app';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+import '../styles/MainLogo.css';
+import '../styles/Header.css';
+import '../styles/globals.css';
+import '../styles/Auth.css';
 
-export default MyApp
+export default App;
