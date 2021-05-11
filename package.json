@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "next start",
+    "start": "next start -p $PORT",
     "debug": "NODE_OPTIONS='--inspect' next",
     "build": "next build",
     "dev": "next dev"
