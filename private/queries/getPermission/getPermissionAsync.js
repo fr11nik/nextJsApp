@@ -13,7 +13,10 @@ const GetPermissionAsync = async (pageName, token) => {
 const getStatus = async (pageName, token) => {
   const response = await GetPermissionAsync(pageName, token);
   const result = await ApiMesageHandlerAsync(response);
-  return result;
+  return {
+    statement: result.statement.message,
+    status: result.status,
+    code: result.code,
+  };
 };
-
 export default getStatus;

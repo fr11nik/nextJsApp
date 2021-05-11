@@ -1,15 +1,19 @@
-// export { default } from './Home';
-// export * from './Home';
 import dynamic from 'next/dynamic';
 import Error from '../components/Items/Error';
 import CircularProgress from '@material-ui/core/CircularProgress';
-export default function DynamicComponent({slug}) {
+import Paper from '@material-ui/core/Paper';
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
+import MenuLayout from '../components/Layouts/MenuLayout';
+
+export default function DynamicComponent(props) {
   const Article = dynamic(
     () =>
-      import(`./${slug}`).catch(err => {
+      import(`./${props.slug}`).catch(err => {
         return () => <Error />;
       }),
     {loading: () => <CircularProgress />},
   );
-  return <Article />;
-}
+    return (<Article {...props.personalData} />);
+  }
+ 

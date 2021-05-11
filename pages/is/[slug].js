@@ -1,65 +1,63 @@
 import MainLayout from '../../components/Layouts/MainLayout';
-import {React, useRef} from 'react';
-import {useRouter, userRouter} from 'next/router';
-import GetPermission from '../../private/queries/getPermission';
+import {React, useEffect} from 'react';
 import DynamicComponent from '../../privatePages';
 import Permission from '../../components/Items/Error/Permission';
 import GetPermissionAsync from '../../private/queries/getPermission/getPermissionAsync';
+import {useRouter} from 'next/router';
+import RefreshTokens from '../../private/queries/refreshToken';
+import GetUserInfo from '../../private/handles/getInfo';
 
-const rbacPermission = router => {
-  GetPermission(router)
-    .then(res => {
-      return true;
-    })
-    .catch(err => {
-      if (err == 'jwt expired') {
-        router.push('/auth');
-      }
-      return false;
-    });
-};
-const PageR = props => {
-  const [errorStatuse, setStatuse] = React.useState('false');
-  const router = useRouter();
-  var permission = 'default';
-  var result = rbacPermission(router);
-
-  if (result) {
-    return (
-      <MainLayout>
-        <DynamicComponent route={router}></DynamicComponent>
-      </MainLayout>
-    );
-  } else {
-    return (
-      <MainLayout>
-        <div>
-          Result : ' {errorStatuse} ' and {router.query.slug}
-        </div>
-      </MainLayout>
-    );
-  }
-};
 export default function RBACPage(props) {
+  const router = useRouter();
+  useEffect(() => {
+    if (props.permissionMessage == 'jwt expired') {
+      //refresh tokens
+      RefreshTokens(props.ssid)
+        .then(() => {
+          console.log('jwt has beign succesful updated');
+          router.reload();
+        })
+        .catch(() => {
+          console.log('error jwt token');
+          router.push('/auth');
+        });
+    }
+    if (props.permissionMessage == 'jwt malformed') {
+      router.push('/auth');
+    }
+  });
   if (props.permissionStatus) {
     return (
       <MainLayout>
-        <DynamicComponent slug={props.pageName}></DynamicComponent>
+        <DynamicComponent
+          personalData={props.personalData.Info}
+          slug={props.pageName}
+        ></DynamicComponent>
+      </MainLayout>
+    );
+  } else if (props.result.code != '401') {
+    return (
+      <MainLayout>
+        <Permission message={props.result}></Permission>
       </MainLayout>
     );
   } else {
-    return (
-      <MainLayout>
-        <Permission message={props.permissionMessage}></Permission>
-      </MainLayout>
-    );
+    return <MainLayout></MainLayout>; //crutch for update cookie
   }
 }
-RBACPage.getInitialProps = async function ({query,req}) {
-  const result = await GetPermissionAsync(query.slug,req.cookies.jwt);
+RBACPage.getInitialProps = async function ({query, req}) {
+  const result = await GetPermissionAsync(query.slug, req.cookies.jwt);
+  var personalData = '1';
+  if (result.status) {
+    personalData = await GetUserInfo(req.cookies.jwt);
+  }
   return {
-    permissionMessage: result.message,
-    permissionStatus: result.status,
     pageName: query.slug,
+    permissionMessage: result.statement,
+    permissionStatus: result.status,
+    result,
+    ssid: req.cookies.ssid,
+    jwt: req.cookies.jwt,
+    personalData: personalData.statement,
   };
 };

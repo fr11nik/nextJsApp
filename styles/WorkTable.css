@@ -1,0 +1,71 @@
+.taskTable {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  border: 1px #000;
+}
+.taskTable thead tr {
+  background-color: #272a2e;
+  color: #ffffff;
+  text-align: left;
+}
+.taskTable th,
+.taskTable td {
+  padding: 12px 15px;
+  font-weight: 500;
+}
+.taskTable tbody th {
+  border: 1px solid rgb(204, 203, 203);
+}
+
+.tableScroll {
+  position: relative;
+  overflow: auto;
+  margin-top: 20px;
+}
+.headerRangeWork tr:first-child {
+  text-align: center;
+}
+.headerRangeWork tr:nth-child(2) {
+  background-color: aliceblue;
+  color: #000;
+}
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+.MuiInputBase-input {
+  width: auto !important;
+}
+.css112filedblock {
+  display: block !important;
+}
+.dataField div > input {
+  width: 100% !important;
+}
+#menu-scheduleName {
+  z-index: 1800 !important;
+}
+#menu-scheduleName div > ul {
+  overflow-x: overlay !important;
+}
+.menuItemOverflow {
+  overflow: initial !important;
+}
+/*//////////////DANGEROUS////////////*/
+.MuiPopover-root div > ul {
+  overflow-x: overlay !important;
+}
+.MuiMenuItem-root {
+  overflow: visible !important;
+}
+.MuiInputAdornment-positionStart {
+  margin-right: 8px !important;
+}
+.textFieldSearch {
+  display: inline-flex;
+}
+.MuiTableRow-root.MuiTableRow-hover:hover {
+  background-color: rgba(0, 132, 255, 0.09) !important;
+}

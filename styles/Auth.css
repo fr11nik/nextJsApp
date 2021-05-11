@@ -1,10 +1,5 @@
 @media screen and (min-width: 650px) {
-  /* .MuiOutlinedInput-input {
-    width: 550px !important;
-  }
-  .MuiButton-root {
-    min-width: 570px !important;
-  } */
+
   .input550 {
     width: 550px !important;
   }

@@ -1,16 +1,17 @@
-import React from 'react';
 import MainLayout from '../components/Layouts/MainLayout';
-import Link from 'next/Link';
-import {Button} from '@material-ui/core'
-export default function MainPage() {
+import Link from '@material-ui/core/Link';
+import WindowLayout from '../components/Layouts/WindowLayout';
+
+import Button from '@material-ui/core/Button';
+export default function MainPage(props) {
+  
   return (
     <MainLayout>
-      <Link href='/auth'>
-        <Button>Auth</Button>
-      </Link>
-      <Link href='/another'>
-        <Button>Another page</Button>
-      </Link>
+      <WindowLayout>
+        <Link href='/directorpanel'>
+          <Button>Director panel</Button>
+        </Link>
+      </WindowLayout>
     </MainLayout>
   );
 }

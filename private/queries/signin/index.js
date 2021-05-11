@@ -1,5 +1,5 @@
 import ApiMesageHandler from '../../handles';
-import Cookies from 'universal-cookie';
+import CookieController from '../../CookieController';
 
 const signIn = ({username, password}) => {
   return new Promise((resolve, reject) => {
@@ -16,10 +16,9 @@ const signIn = ({username, password}) => {
     }).then(res => {
       ApiMesageHandler(res)
         .then(data => {
-          const cookies = new Cookies();
-          cookies.set('jwt', data.tokens.accessToken, {path: '/'});
-          cookies.set('ssid', data.tokens.refreshToken, {path: '/'});
-          resolve('Вход был выполнен успешно');
+          CookieController.createCookie('jwt', data.tokens.accessToken);
+          CookieController.createCookie('ssid', data.tokens.refreshToken);
+          resolve({message: 'Вход был выполнен успешно', roles: data.roles});
         })
         .catch(err => {
           reject(err);

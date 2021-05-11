@@ -1,5 +1,6 @@
 import MainLayout from '../components/Layouts/MainLayout';
-
-export default function Haha() {
+import withAuth from '../utils/WithAuth';
+const babah = () => {
   return <MainLayout>About all the thing. You'll have know on that page</MainLayout>;
-}
+};
+export default withAuth(babah, 'director');

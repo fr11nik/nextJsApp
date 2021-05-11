@@ -1,16 +1,10 @@
 const ApiMessageHandlerAsync = async res => {
   var Result = res.ok;
-  const msg = await res.json();
-    if (Result) {
-      return {
-        message: msg.message,
-        status: true,
-      };
-    } else {
-      return {
-        message: msg.message,
-        status: false,
-      };
-    }
+  const data = await res.json();
+  return {
+    statement: data,
+    status: Result,
+    code:res.status
+  };
 };
 export default ApiMessageHandlerAsync;
