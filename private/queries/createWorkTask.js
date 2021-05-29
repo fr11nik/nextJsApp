@@ -34,7 +34,7 @@ const createWorkTask = ({
     });
 
     fetch(
-      'https://powerful-fortress-91385.herokuapp.com/node-cm/workschedule/scheduleTask1/create',
+      'https://resotstroy-api.herokuapp.com/node-cm/workschedule/scheduleTask1/create',
       {
         method: 'POST',
         headers: {

@@ -131,7 +131,7 @@ const a = props => {
   );
   const handleDeleteUser = async e => {
     const response = await fetch(
-      'https://powerful-fortress-91385.herokuapp.com/node-cm/user/' + fieldID,
+      'https://resotstroy-api.herokuapp.com/node-cm/user/' + fieldID,
       {
         method: 'DELETE',
         headers: {
@@ -277,7 +277,7 @@ const a = props => {
 export default withAuth(a, 'admin');
 a.getInitialProps = async ({req}) => {
   const result = await (
-    await fetch('https://powerful-fortress-91385.herokuapp.com/api/users/getAll', {
+    await fetch('https://resotstroy-api.herokuapp.com/api/users/getAll', {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

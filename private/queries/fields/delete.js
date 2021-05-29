@@ -8,18 +8,15 @@ const deleteField = scheduleID => {
       scheduleID,
     });
 
-    fetch(
-      'https://powerful-fortress-91385.herokuapp.com/node-cm/workschedule/delete',
-      {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': token,
-        },
-        body,
+    fetch('https://resotstroy-api.herokuapp.com/node-cm/workschedule/delete', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-acces-token': token,
       },
-    ).then(res => {
+      body,
+    }).then(res => {
       ApiMesageHandler(res)
         .then(data => {
           resolve(data.message);

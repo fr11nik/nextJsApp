@@ -1,16 +1,13 @@
 import ApiMesageHandlerAsync from '../../handles/AsyncMessageHandler';
 
 const GetPermissionAsync = async (pageName, token) => {
-  const res = await fetch(
-    'https://powerful-fortress-91385.herokuapp.com/' + pageName,
-    {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'x-acces-token': token,
-      },
+  const res = await fetch('https://resotstroy-api.herokuapp.com/' + pageName, {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'x-acces-token': token,
     },
-  );
+  });
   return res;
 };
 const getStatus = async (pageName, token) => {

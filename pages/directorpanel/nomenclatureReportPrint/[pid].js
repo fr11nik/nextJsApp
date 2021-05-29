@@ -53,7 +53,7 @@ export default WithAuth(nomenclaturePrintDialog, 'director');
 nomenclaturePrintDialog.getInitialProps = async ({query, req}) => {
   const data = await (
     await fetch(
-      'https://powerful-fortress-91385.herokuapp.com/node-cm/nomenclature/getAll/' +
+      'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/getAll/' +
         query.pid,
       {
         headers: {

@@ -1,5 +1,5 @@
 export default class AuthService {
-  serverUrl = 'https://powerful-fortress-91385.herokuapp.com';
+  serverUrl = 'https://resotstroy-api.herokuapp.com';
   message;
   ssid;
   constructor(token) {

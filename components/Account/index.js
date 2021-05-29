@@ -43,7 +43,7 @@ export default function UserAccount(props) {
     console.log(user);
     UniversalFetch(
       passwords,
-      'https://powerful-fortress-91385.herokuapp.com/node-cm/user/changePassword/' +
+      'https://resotstroy-api.herokuapp.com/node-cm/user/changePassword/' +
         user.idAuth,
       'POST',
     )

@@ -4,7 +4,7 @@ export default function GetTaskNames() {
   return new Promise(async (resolve, reject) => {
     const jwt = CookieController.readCookie('jwt');
     const res = await fetch(
-      'https://powerful-fortress-91385.herokuapp.com/node-cm/workschedule/schedules/get',
+      'https://resotstroy-api.herokuapp.com/node-cm/workschedule/schedules/get',
       {
         headers: {
           Accept: 'application/json',

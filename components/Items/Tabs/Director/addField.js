@@ -19,7 +19,7 @@ const t = props => {
   const handleAdd = async (fieldName, link) => {
     const token = CookieController.readCookie('jwt');
     const res = await fetch(
-      'https://powerful-fortress-91385.herokuapp.com/node-cm/' + link + '/create',
+      'https://resotstroy-api.herokuapp.com/node-cm/' + link + '/create',
       {
         method: 'POST',
         headers: {

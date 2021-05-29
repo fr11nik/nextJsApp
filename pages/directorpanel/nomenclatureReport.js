@@ -293,7 +293,7 @@ function ColapseTable(props) {
         unitID: currentRow.row.unit.id,
         workscheduleID: currentRow.workscheduleID,
       },
-      'https://powerful-fortress-91385.herokuapp.com/node-cm/nomenclature/update',
+      'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/update',
       'POST',
     )
       .then(res => {
@@ -347,7 +347,7 @@ function ColapseTable(props) {
         unitID: currentRow.row.unit.id,
         workscheduleID: currentRow.workscheduleID,
       },
-      'https://powerful-fortress-91385.herokuapp.com/node-cm/nomenclature/add',
+      'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/add',
       'POST',
     )
       .then(res => {
@@ -374,7 +374,7 @@ function ColapseTable(props) {
     setTask(e.target.value);
     const works = await (
       await fetch(
-        'https://powerful-fortress-91385.herokuapp.com/node-cm/workschedule/getTaskNames/' +
+        'https://resotstroy-api.herokuapp.com/node-cm/workschedule/getTaskNames/' +
           e.target.value,
         {
           headers: {
@@ -444,8 +444,7 @@ function ColapseTable(props) {
   const handleRemoveNomenclatureAccept = async () => {
     const res = await (
       await fetch(
-        'https://powerful-fortress-91385.herokuapp.com/node-cm/nomenclature/' +
-          currentRowID,
+        'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/' + currentRowID,
         {
           method: 'DELETE',
           headers: {
@@ -674,7 +673,7 @@ const nomenclatureReport = props => {
     setTask(event.target.value);
     const resTask = await (
       await fetch(
-        'https://powerful-fortress-91385.herokuapp.com/node-cm/workschedule/getTaskNames/' +
+        'https://resotstroy-api.herokuapp.com/node-cm/workschedule/getTaskNames/' +
           event.target.value,
         {
           headers: {
@@ -690,7 +689,7 @@ const nomenclatureReport = props => {
     });
     const res = await (
       await fetch(
-        'https://powerful-fortress-91385.herokuapp.com/node-cm/nomenclature/getAll/' +
+        'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/getAll/' +
           event.target.value,
         {
           headers: {

@@ -35,7 +35,7 @@ function CollapsibleTable1(props) {
     setTask(e.target.value);
     const works = await (
       await fetch(
-        'https://powerful-fortress-91385.herokuapp.com/node-cm/workschedule/getTaskNames/' +
+        'https://resotstroy-api.herokuapp.com/node-cm/workschedule/getTaskNames/' +
           e.target.value,
         {
           headers: {
@@ -61,7 +61,7 @@ function CollapsibleTable1(props) {
         unitID: currentRow.row.unit.id,
         workscheduleID: currentRow.workscheduleID,
       },
-      'https://powerful-fortress-91385.herokuapp.com/node-cm/nomenclature/add',
+      'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/add',
       'POST',
     )
       .then(res => {
@@ -212,7 +212,7 @@ export default WithAuth(AddNomenclature, 'director');
 AddNomenclature.getInitialProps = async ({req}) => {
   const taskNames = await (
     await fetch(
-      'https://powerful-fortress-91385.herokuapp.com/node-cm/workschedule/getTaskNames/1',
+      'https://resotstroy-api.herokuapp.com/node-cm/workschedule/getTaskNames/1',
       {
         headers: {
           Accept: 'application/json',

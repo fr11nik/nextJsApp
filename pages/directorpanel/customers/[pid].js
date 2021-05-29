@@ -153,16 +153,13 @@ ChangeUser.getInitialProps = async ({query, req}) => {
   const {pid} = query;
 
   const response = await (
-    await fetch(
-      'https://powerful-fortress-91385.herokuapp.com/api/user/get/' + pid,
-      {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': req.cookies.jwt,
-        },
+    await fetch('https://resotstroy-api.herokuapp.com/api/user/get/' + pid, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-acces-token': req.cookies.jwt,
       },
-    )
+    })
   ).json();
 
   return {

@@ -12,7 +12,7 @@ const createUser = ({
 }) => {
   return new Promise((resolve, reject) => {
     const token = CookieController.readCookie('jwt');
-    fetch('https://powerful-fortress-91385.herokuapp.com/node-cm/createUser', {
+    fetch('https://resotstroy-api.herokuapp.com/node-cm/createUser', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

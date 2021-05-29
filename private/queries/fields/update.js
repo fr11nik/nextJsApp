@@ -29,7 +29,7 @@ const updateFields = ({
     });
 
     fetch(
-      'https://powerful-fortress-91385.herokuapp.com/node-cm/workschedule/scheduleField/change',
+      'https://resotstroy-api.herokuapp.com/node-cm/workschedule/scheduleField/change',
       {
         method: 'POST',
         headers: {

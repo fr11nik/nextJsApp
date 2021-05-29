@@ -3,7 +3,7 @@ import CookieController from '../../CookieController';
 
 const signIn = ({username, password}) => {
   return new Promise((resolve, reject) => {
-    fetch('https://powerful-fortress-91385.herokuapp.com/api/user/signin', {
+    fetch('https://resotstroy-api.herokuapp.com/api/user/signin', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
