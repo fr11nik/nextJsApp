@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/Link';
+import Link from '@material-ui/core/Link';
 
 export default function Logo(props) {
   const preventDefault = event => event.preventDefault();

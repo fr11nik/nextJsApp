@@ -1,4 +1,4 @@
-import Link from 'next/Link';
+import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 
 export default About => {
