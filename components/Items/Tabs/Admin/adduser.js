@@ -12,6 +12,7 @@ import {CreateUser} from '../../../../private/queries';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import ComponentWrapper from '../../../Layouts/componentWrapper';
 
 export default function addUser() {
   const [firstname, setfirstname] = React.useState('');
@@ -49,7 +50,6 @@ export default function addUser() {
     if (reason === 'clickaway') {
       return;
     }
-
     setOpen(false);
   };
 
@@ -76,102 +76,93 @@ export default function addUser() {
 
   const names = ['admin', 'moderator', 'user', 'director'];
   return (
-    <div className='css133133'>
-      <Paper>
-        <div className='css133133__inner'>
-          <p>Добавить пользователя</p>
-          <div className='block2'>
-            <div className='proper12334'>
-              <TextField
-                value={firstname}
-                className='dataField'
-                id='outlined-basic'
-                label='Имя'
-                variant='outlined'
-                error={errorValue}
-                onChange={handleSetfirstname}
-              />
-              <TextField
-                value={phonenumber}
-                className='dataField'
-                id='outlined-basic'
-                label='Номер Телефона'
-                variant='outlined'
-                error={errorValue}
-                onChange={handleSetphonenumber}
-              />
-              <TextField
-                value={username}
-                className='dataField'
-                id='outlined-basic'
-                label='Логин'
-                variant='outlined'
-                error={errorValue}
-                onChange={handleSetusername}
-              />
-            </div>
-            <div className='proper12334'>
-              <TextField
-                value={lastname}
-                className='dataField'
-                id='outlined-basic'
-                label='Фамилия'
-                variant='outlined'
-                error={errorValue}
-                onChange={handleSetlastname}
-              />
-              <TextField
-                type='password'
-                value={password}
-                className='dataField'
-                id='outlined-basic'
-                label='Пароль'
-                variant='outlined'
-                error={errorValue}
-                onChange={handleSetpassword}
-              />
-              <TextField
-                value={email}
-                className='dataField'
-                id='outlined-basic'
-                label='Email'
-                variant='outlined'
-                error={errorValue}
-                onChange={handleSetemail}
-              />
-            </div>
-          </div>
+    <>
+      <Paper className='csspaper'>
+        <p className='pTitle'>Добавить пользователя</p>
+        <TextField
+          value={firstname}
+          className='dataField'
+          id='outlined-basic'
+          label='Имя'
+          variant='outlined'
+          error={errorValue}
+          onChange={handleSetfirstname}
+        />
+        <TextField
+          value={phonenumber}
+          className='dataField'
+          id='outlined-basic'
+          label='Номер Телефона'
+          variant='outlined'
+          error={errorValue}
+          onChange={handleSetphonenumber}
+        />
+        <TextField
+          value={username}
+          className='dataField'
+          id='outlined-basic'
+          label='Логин'
+          variant='outlined'
+          error={errorValue}
+          onChange={handleSetusername}
+        />
+        <TextField
+          value={lastname}
+          className='dataField'
+          id='outlined-basic'
+          label='Фамилия'
+          variant='outlined'
+          error={errorValue}
+          onChange={handleSetlastname}
+        />
+        <TextField
+          type='password'
+          value={password}
+          className='dataField'
+          id='outlined-basic'
+          label='Пароль'
+          variant='outlined'
+          error={errorValue}
+          onChange={handleSetpassword}
+        />
+        <TextField
+          value={email}
+          className='dataField'
+          id='outlined-basic'
+          label='Email'
+          variant='outlined'
+          error={errorValue}
+          onChange={handleSetemail}
+        />
 
-          <div className='roleCheckbox'>
-            <InputLabel id='demo-mutiple-checkbox-label'>Роли</InputLabel>
-            <Select
-              className='roleInput'
-              labelId='demo-mutiple-checkbox-label'
-              id='demo-mutiple-checkbox'
-              multiple
-              value={roles}
-              error={errorValue}
-              onChange={handleChange}
-              input={<Input />}
-              renderValue={selected => selected.join(', ')}
-            >
-              {names.map(name => (
-                <MenuItem key={name} value={name}>
-                  <Checkbox checked={roles.indexOf(name) > -1} />
-                  <ListItemText primary={name} />
-                </MenuItem>
-              ))}
-            </Select>
-          </div>
-          <Button
-            className='btnCreateUser'
-            onClick={onCreateUser}
-            variant='contained'
-            color='primary'
-          >
-            Создать пользователя
-          </Button>
-        </div>
+        <InputLabel id='demo-mutiple-checkbox-label'>Роли</InputLabel>
+        <Select
+          className='roleInput'
+          labelId='demo-mutiple-checkbox-label'
+          id='demo-mutiple-checkbox'
+          multiple
+          value={roles}
+          error={errorValue}
+          onChange={handleChange}
+          input={<Input />}
+          renderValue={selected => selected.join(', ')}
+        >
+          {names.map(name => (
+            <MenuItem key={name} value={name}>
+              <Checkbox checked={roles.indexOf(name) > -1} />
+              <ListItemText primary={name} />
+            </MenuItem>
+          ))}
+        </Select>
+
+        <Button
+          className='btnCreateUser'
+          onClick={onCreateUser}
+          variant='contained'
+          color='primary'
+        >
+          Создать пользователя
+        </Button>
       </Paper>
       <Snackbar
         anchorOrigin={{
@@ -198,6 +189,6 @@ export default function addUser() {
           </React.Fragment>
         }
       />
-    </div>
+    </>
   );
 }

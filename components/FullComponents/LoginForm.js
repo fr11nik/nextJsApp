@@ -11,14 +11,14 @@ export default function LoginForm(props) {
   const [errorStatuse, setStatuse] = React.useState(false);
   const [username, setUserName] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [Mesage, updateContent] = React.useState('result Sign In');
+  const [Mesage, updateContent] = React.useState('');
   function onSignIn(e) {
     SignIn({username: username, password: password})
       .then(res => {
         updateContent(res.message);
         setStatuse(false);
-        document.getElementsByClassName('signOutButton')[0].className =
-          'signOutButton btnshow';
+        // document.getElementsByClassName('signOutButton')[0].className =
+        //   'signOutButton btnshow';
         window.location.href = '/' + res.roles[0] + 'panel';
       })
       .catch(err => {

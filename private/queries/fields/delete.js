@@ -8,15 +8,18 @@ const deleteField = scheduleID => {
       scheduleID,
     });
 
-    fetch('http://localhost:3001/node-cm/workschedule/delete', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'x-acces-token': token,
+    fetch(
+      'https://powerful-fortress-91385.herokuapp.com/node-cm/workschedule/delete',
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'x-acces-token': token,
+        },
+        body,
       },
-      body,
-    }).then(res => {
+    ).then(res => {
       ApiMesageHandler(res)
         .then(data => {
           resolve(data.message);

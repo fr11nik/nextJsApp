@@ -22,4 +22,10 @@
   box-shadow: none !important;
   /* margin-right: 50px !important; */
 }
-
+.signOutButton {
+  display: flex;
+  align-items: center;
+}
+.signOutButton button {
+  padding-right: 35px;
+}

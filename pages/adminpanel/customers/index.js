@@ -1,5 +1,5 @@
 import withAuth from '../../../utils/WithAuth';
-import DirectorLayout from '../../../components/Layouts/DirectorLayout';
+import AdminLayout from '../../../components/Layouts/AdminLayout';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
@@ -9,9 +9,13 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
+import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import Fab from '@material-ui/core/Fab';
 import {makeStyles} from '@material-ui/core/styles';
+import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
 import Avatar from '@material-ui/core/Avatar';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
@@ -207,7 +211,7 @@ const a = props => {
   };
 
   return (
-    <DirectorLayout {...props}>
+    <AdminLayout {...props}>
       <Paper className='csspaper' style={{padding: '15px'}}>
         <div className='css2blocks'>
           <TextField
@@ -267,10 +271,10 @@ const a = props => {
         setDialog={setDialog}
       />
       <SnackBar open={open} setOpen={setOpen} snackMessage={snackMessage} />
-    </DirectorLayout>
+    </AdminLayout>
   );
 };
-export default withAuth(a, 'director');
+export default withAuth(a, 'admin');
 a.getInitialProps = async ({req}) => {
   const result = await (
     await fetch('https://powerful-fortress-91385.herokuapp.com/api/users/getAll', {
@@ -281,6 +285,7 @@ a.getInitialProps = async ({req}) => {
       },
     })
   ).json();
+
   return {
     usersProps: result,
   };

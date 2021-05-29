@@ -3,7 +3,6 @@ import {useRouter} from 'next/router';
 export default function TableBody(props) {
   const router = useRouter();
   const handleDeleteRow = e => {
-    console.log();
     props.setDialog(true);
     props.setFieldID(e.target.parentElement.name);
   };
@@ -25,6 +24,7 @@ export default function TableBody(props) {
       row.crossing.push({id: '-', crossingName: ''});
     }
   });
+
   return (
     <tbody>
       {props.bodyList.map((row, index) => (
@@ -69,6 +69,43 @@ export default function TableBody(props) {
           </tr>
         </>
       ))}
+      {Row(
+        props.bodyList.length,
+        'Составление апаратной документации',
+        props.bodyList.length,
+      )}
+      {Row(
+        props.bodyList.length,
+        'Передача исполнительной документации заказчику',
+        props.bodyList.length + 1,
+      )}
     </tbody>
   );
 }
+const Row = (length, taskName, index) => {
+  const a = [];
+  for (let i = 0; i < length; i++) {
+    a.push(<th></th>);
+  }
+  return (
+    <>
+      <tr className={index}>
+        <th rowSpan='2'></th>
+        <th rowSpan='2'>{index + 1}</th>
+        <th rowSpan='2'>{taskName}</th>
+        <th rowSpan='2'></th>
+        <th rowSpan='2'></th>
+        <th rowSpan='2'></th>
+        <th rowSpan='2'></th>
+        <th rowSpan='2'></th>
+        <th rowSpan='2'></th>
+        <th className='cellContent01'></th>
+        {a}
+      </tr>
+      <tr className={index}>
+        <th className='cellContent01'></th>
+        {a}
+      </tr>
+    </>
+  );
+};

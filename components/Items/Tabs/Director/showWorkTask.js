@@ -41,6 +41,7 @@ const showWorkTask = () => {
       );
     });
   };
+  
   const handleChange = event => {
     LoadTable(event.target.value);
   };
@@ -58,6 +59,7 @@ const showWorkTask = () => {
     'Персонал и техника',
   ];
   const tasksNames = JSON.parse(sessionStorage.getItem('tasksList'));
+  
   return (
     <>
       <Paper className='csspaper'>

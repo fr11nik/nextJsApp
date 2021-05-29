@@ -16,6 +16,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import PlusOneIcon from '@material-ui/icons/PlusOne';
+import GavelIcon from '@material-ui/icons/Gavel';
 
 export default function DirectorMenu() {
   const [open, setOpen] = React.useState(false);
@@ -47,7 +48,7 @@ export default function DirectorMenu() {
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
-          <a href='/auth'>
+          <a href='/directorpanel/account'>
             <ListItemText primary='Аккаунт' />
           </a>
         </ListItem>
@@ -84,6 +85,14 @@ export default function DirectorMenu() {
                 <ListItemText primary='График работ' />
               </a>
             </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <GavelIcon />
+              </ListItemIcon>
+              <a href='/directorpanel/addnomenclature'>
+                <ListItemText primary='Номенклатуру' />
+              </a>
+            </ListItem>
           </List>
         </Collapse>
 
@@ -97,10 +106,10 @@ export default function DirectorMenu() {
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <ErrorIcon />
+            <AssignmentIcon />
           </ListItemIcon>
-          <a href='/auth'>
-            <ListItemText primary='Ошибки в системе' />
+          <a href='/directorpanel/nomenclatureReport'>
+            <ListItemText primary='Акт о выполненных работах' />
           </a>
         </ListItem>
       </List>

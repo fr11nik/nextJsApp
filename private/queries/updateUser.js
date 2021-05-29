@@ -1,18 +1,20 @@
 import ApiMesageHandler from '../handles';
 import CookieController from '../CookieController';
-//////ADD ROLES INTO BODY !!!
-const createUser = ({
+
+const updateUser = ({
   firstname,
   lastname,
-  phonenumber,
-  username,
-  password,
-  roles,
   email,
+  userRoles,
+  password,
+  idAuth,
+  idPersonal,
+  username,
+  phonenumber,
 }) => {
   return new Promise((resolve, reject) => {
     const token = CookieController.readCookie('jwt');
-    fetch('https://powerful-fortress-91385.herokuapp.com/node-cm/createUser', {
+    fetch('https://powerful-fortress-91385.herokuapp.com/node-cm/user/update', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -20,13 +22,15 @@ const createUser = ({
         'x-acces-token': token,
       },
       body: JSON.stringify({
+        email,
         firstname,
         lastname,
-        phonenumber,
-        username,
+        userRoles,
         password,
-        roles,
-        email,
+        idAuth,
+        idPersonal,
+        username,
+        phonenumber,
       }),
     }).then(res => {
       ApiMesageHandler(res)
@@ -41,4 +45,4 @@ const createUser = ({
     });
   });
 };
-export default createUser;
+export default updateUser;

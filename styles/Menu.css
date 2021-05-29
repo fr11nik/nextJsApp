@@ -103,7 +103,7 @@ h5 {
 }
 .menuHamburger {
   position: fixed !important;
-  z-index: 1500;
+  z-index: 1301;
   margin: 17px 0 0 35px !important;
 }
 @media (min-width: 1280px) {
@@ -155,3 +155,15 @@ h5 {
     padding: 15px;
   }
 }
+.buttonChange {
+  margin-left: 10px !important;
+  background-color: #252525 !important;
+  color: #fff !important;
+}
+@media (max-width: 391px) {
+  .buttonChange {
+    margin-left: 0px !important;
+    margin-top: 10px !important;
+  }
+}
+

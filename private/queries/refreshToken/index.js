@@ -5,7 +5,7 @@ import CookieController from '../../CookieController';
 // export default updateTokens;
 const getTokens = refreshToken => {
   return new Promise((resolve, reject) => {
-    fetch('http://localhost:3001/api/user/refresh-tokens', {
+    fetch('https://powerful-fortress-91385.herokuapp.com/api/user/refresh-tokens', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

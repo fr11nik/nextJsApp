@@ -5,7 +5,6 @@ const WorkSchedules = props => {
   return (
     <DirectorLayout {...props}>
       <WorkTask></WorkTask>
-      
     </DirectorLayout>
   );
 };

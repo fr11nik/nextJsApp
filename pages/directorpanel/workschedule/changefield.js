@@ -26,7 +26,6 @@ const ChangeField = props => {
     const [array, setItems] = useState(row);
     const [openDialog, setDialog] = useState(false);
     const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
     const handleCloseDialog = (event, reason) => {
       if (reason === 'clickaway') {
         return;

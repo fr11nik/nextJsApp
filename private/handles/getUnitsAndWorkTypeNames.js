@@ -4,7 +4,7 @@ export default function GetWorkTypeAndUnitsNames() {
   return new Promise(async (resolve, reject) => {
     const jwt = CookieController.readCookie('jwt');
     const res = await fetch(
-      'http://localhost:3001/node-cm/workschedule/unitsAndWorkType/get',
+      'https://powerful-fortress-91385.herokuapp.com/node-cm/workschedule/unitsAndWorkType/get',
       {
         headers: {
           Accept: 'application/json',

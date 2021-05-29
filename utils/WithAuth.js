@@ -14,10 +14,12 @@ export default function withAuth(AuthComponent, roleName) {
       const tokens = {};
       if (Auth.message == 'jwt expired') {
         isRefresh = await Auth.refereshToken();
-        
+
         if (isRefresh) {
           tokens.token = Auth.state;
           tokens.ssid = Auth.ssid;
+          ctx.req.cookies.jwt = Auth.state;
+          ctx.req.cookies.ssid = Auth.ssid;
         }
       }
       const userData = await Auth.getUser();

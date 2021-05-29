@@ -18,17 +18,20 @@ const t = props => {
   };
   const handleAdd = async (fieldName, link) => {
     const token = CookieController.readCookie('jwt');
-    const res = await fetch('http://localhost:3001/node-cm/' + link + '/create', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'x-acces-token': token,
+    const res = await fetch(
+      'https://powerful-fortress-91385.herokuapp.com/node-cm/' + link + '/create',
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'x-acces-token': token,
+        },
+        body: JSON.stringify({
+          [fieldName]: state,
+        }),
       },
-      body: JSON.stringify({
-        [fieldName]: state,
-      }),
-    });
+    );
     const response = await res.json();
     setMessage(response.message);
     setOpen(true);

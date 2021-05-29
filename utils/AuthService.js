@@ -1,5 +1,5 @@
 export default class AuthService {
-  serverUrl = 'http://localhost:3001';
+  serverUrl = 'https://powerful-fortress-91385.herokuapp.com';
   message;
   ssid;
   constructor(token) {

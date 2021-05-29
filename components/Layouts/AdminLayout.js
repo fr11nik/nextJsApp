@@ -1,11 +1,10 @@
+import PanelLayout from './PanelLayout';
 import MainLayout from './MainLayout';
-import AdminPanel from '../Items/Menus/AdminMenuController';
-export default function AdminLayout({children}) {
-    return (
-      <>
-        <MainLayout>
-        <main>{children}</main>
-        </MainLayout>     
-      </>
-    );
+import AdminMenu from '../Items/Menus/AdminMenu';
+export default function DirectorLayout(props) {
+  return (
+    <MainLayout>
+      <PanelLayout Menu={<AdminMenu />} {...props}></PanelLayout>
+    </MainLayout>
+  );
 }
