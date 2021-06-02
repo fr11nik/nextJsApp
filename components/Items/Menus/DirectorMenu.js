@@ -82,7 +82,7 @@ export default function DirectorMenu() {
                 <PlusOneIcon />
               </ListItemIcon>
               <a href='/directorpanel/addschedule'>
-                <ListItemText primary='График работ' />
+                <ListItemText primary='Справочники' />
               </a>
             </ListItem>
             <ListItem button>

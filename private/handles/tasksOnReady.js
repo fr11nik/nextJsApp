@@ -11,7 +11,6 @@ export default function TaskOnReady() {
   }
   if (unitsList == null || workTypeLists == null || unitsList == 'undefined') {
     GetWorkTypeAndUnitsNames().then(workTypeAndUnits => {
-      console.log(workTypeAndUnits);
       sessionStorage.setItem(
         'workTypeList',
         JSON.stringify(workTypeAndUnits.workTypes),
