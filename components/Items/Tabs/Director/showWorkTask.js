@@ -23,11 +23,11 @@ const showWorkTask = props => {
     setTask(taskName);
     GetTaskTable(taskName)
       .then(data => {
+        console.log(data);
         tasksTable.table = data;
         data.map(itemRow => {
           rangeOfWork.push(itemRow.date);
         });
-
         setTable(
           <table className='taskTable'>
             <TableHeader

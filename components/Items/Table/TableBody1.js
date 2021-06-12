@@ -6,7 +6,6 @@ export default function TableBody(props) {
       fieldID = e.target.parentElement.attributes['name'].value;
     }
     props.setDialog(true);
-    console.log(e.target);
     props.setFieldID(fieldID);
   };
   const handleChangeField = e => {

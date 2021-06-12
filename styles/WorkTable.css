@@ -41,6 +41,9 @@
 .css112filedblock {
   display: block !important;
 }
+.css112filedblock input {
+  width: 100% !important;
+}
 .dataField div > input {
   width: 100% !important;
 }

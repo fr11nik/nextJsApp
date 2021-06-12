@@ -664,7 +664,19 @@ function ColapseTable(props) {
   );
 }
 const nomenclatureReport = props => {
-  const workGraphic = JSON.parse(sessionStorage.getItem('tasksList'));
+  var workGraphic = JSON.parse(sessionStorage.getItem('tasksList'));
+
+  fetch('https://resotstroy-api.herokuapp.com/node-cm/workschedule/schedules/get', {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'x-acces-token': CookieController.readCookie('jwt'),
+    },
+  }).then(res => {
+    res.json().then(data => {
+      workGraphic = data;
+    });
+  });
 
   const [task, setTask] = React.useState(-1);
   const [data, setData] = React.useState([]);

@@ -12,13 +12,12 @@ import UpdateFields from '../../../private/queries/fields/update';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import {useTheme} from '@material-ui/core/styles';
+
 import ChangeFieldDialog from '../../../components/Dialog/changeFieldDialog';
 const ChangeField = props => {
   var row = JSON.parse(sessionStorage.getItem('fieldID'));
   if (row != undefined) {
-    const tasksNames = JSON.parse(sessionStorage.getItem('tasksList'));
+    const tasksNames = props.schedules;
     const unitsNames = JSON.parse(sessionStorage.getItem('unitsList'));
     const workTypeNames = JSON.parse(sessionStorage.getItem('workTypeList'));
     const [snackMessage, setMessage] = useState('');
@@ -222,7 +221,11 @@ const ChangeField = props => {
               ))}
             </Select>
             <div className='buttonsGroup'>
-              <Button variant='contained' color='primary' onClick={handleUpdateFields}>
+              <Button
+                variant='contained'
+                color='primary'
+                onClick={handleUpdateFields}
+              >
                 Сохранить результат
               </Button>
               <Button
@@ -232,7 +235,7 @@ const ChangeField = props => {
               >
                 Сохранить как
               </Button>
-  
+
               <Link underline='none' href='/directorpanel/workschedules'>
                 <Button variant='contained' color='secondary'>
                   Отменить изменения
@@ -281,3 +284,20 @@ const ChangeField = props => {
   }
 };
 export default WithAuth(ChangeField, 'director');
+ChangeField.getInitialProps = async ({req}) => {
+  const res = await (
+    await fetch(
+      'https://resotstroy-api.herokuapp.com/node-cm/workschedule/schedules/get',
+      {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'x-acces-token': req.cookies.jwt,
+        },
+      },
+    )
+  ).json();
+  return {
+    schedules: res,
+  };
+};

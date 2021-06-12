@@ -10,7 +10,7 @@ export default function graphicTableHeader(props) {
             </Tooltip>
           ))}
           {props.rangeOfWork.map(itemHeader => {
-            const arr = itemHeader.split('-');
+            const arr = itemHeader.split('-');         
             return (
               <Tooltip
                 title={`${arr[2]}/${arr[1]}/${arr[0]}`}
