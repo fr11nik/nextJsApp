@@ -4,12 +4,12 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import GetTaskTable from '../../../../private/handles/getTaskTable';
 import TableHeader from '../../Table/TableHeader';
-import TableBody from '../../Table/TableBody1';
+import TableBody from './TableBody1';
 import Paper from '@material-ui/core/Paper';
 import DeleteFieldDialog from '../../../Dialog/deleteFieldDialog';
 import SnackBar from '../../../Snacks/SnackBar';
 import Button from '@material-ui/core/Button';
-const showWorkTask = props => {
+const showWorkTask = () => {
   const [task, setTask] = React.useState('');
   const [table, setTable] = React.useState('');
   const [open, setOpen] = React.useState(false);
@@ -54,7 +54,6 @@ const showWorkTask = props => {
   };
 
   const headerItems = [
-    'Взаимодействие',
     '№ п/п',
     'Наименование работ',
     'Ед. изм.',
@@ -65,7 +64,7 @@ const showWorkTask = props => {
     'Пересечение 2',
     'Персонал и техника',
   ];
-  const tasksNames = props.schedules;
+  const tasksNames = JSON.parse(sessionStorage.getItem('tasksList'));
 
   return (
     <>

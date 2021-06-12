@@ -6,10 +6,11 @@ import PaperWrap from '../../components/Layouts/PaperWrap';
 import HamburgerMenu from '../Headers/btnMenu';
 export default function DirectorLayout(props) {
   const menu = props.Menu;
+  const Info = props.userData == undefined ? {} : props.userData.Info;
   return (
     <>
-      <HamburgerMenu type={menu} userData={props.userData.Info} />
-      <MenuLayout {...props.userData.Info}>{menu}</MenuLayout>
+      <HamburgerMenu type={menu} userData={Info} />
+      <MenuLayout {...Info}>{menu}</MenuLayout>
       <WindowLayout>{props.children}</WindowLayout>
     </>
   );

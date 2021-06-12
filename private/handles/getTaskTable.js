@@ -18,6 +18,8 @@ export default function GetTaskTable(scheduleID) {
       },
     );
     const ResolveData = await ApiMesageHandlerAsync(res);
-    resolve(ResolveData.statement);
+    if (ResolveData.code == 403) {
+      reject(ResolveData.statement);
+    } else resolve(ResolveData.statement);
   });
 }

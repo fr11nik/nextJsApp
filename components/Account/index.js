@@ -40,7 +40,6 @@ export default function UserAccount(props) {
       });
   };
   const handleUpdatePassword = () => {
-    console.log(user);
     UniversalFetch(
       passwords,
       'https://resotstroy-api.herokuapp.com/node-cm/user/changePassword/' +
@@ -144,7 +143,6 @@ export default function UserAccount(props) {
       <Button className='buttonChange' onClick={handleUpdateUser}>
         Изменить данные
       </Button>
-
       <PrefabDialog
         title='Изменение данных аккаунта'
         description='Введите старый пароль и новый 2 раза'

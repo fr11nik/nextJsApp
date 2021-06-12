@@ -25,7 +25,6 @@ const ChangeField = props => {
     const [open, setOpen] = useState(false);
     const [array, setItems] = useState(row);
     const [openDialog, setDialog] = useState(false);
-    const theme = useTheme();
     const handleCloseDialog = (event, reason) => {
       if (reason === 'clickaway') {
         return;
@@ -222,22 +221,24 @@ const ChangeField = props => {
                 </MenuItem>
               ))}
             </Select>
-            <Button variant='contained' color='primary' onClick={handleUpdateFields}>
-              Сохранить результат
-            </Button>
-            <Button
-              variant='contained'
-              color='primary'
-              onClick={() => setDialog(true)}
-            >
-              Сохранить как
-            </Button>
-
-            <Link underline='none' href='/directorpanel/workschedules'>
-              <Button variant='contained' color='secondary'>
-                Отменить изменения
+            <div className='buttonsGroup'>
+              <Button variant='contained' color='primary' onClick={handleUpdateFields}>
+                Сохранить результат
               </Button>
-            </Link>
+              <Button
+                variant='contained'
+                color='primary'
+                onClick={() => setDialog(true)}
+              >
+                Сохранить как
+              </Button>
+  
+              <Link underline='none' href='/directorpanel/workschedules'>
+                <Button variant='contained' color='secondary'>
+                  Отменить изменения
+                </Button>
+              </Link>
+            </div>
           </Paper>
         </div>
         <Snackbar
@@ -253,7 +254,7 @@ const ChangeField = props => {
           action={
             <Fragment>
               <Button color='secondary' size='small' onClick={handleClose}>
-                UNDO
+                Назад
               </Button>
               <IconButton
                 size='small'

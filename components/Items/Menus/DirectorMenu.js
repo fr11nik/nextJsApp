@@ -17,10 +17,19 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import PlusOneIcon from '@material-ui/icons/PlusOne';
 import GavelIcon from '@material-ui/icons/Gavel';
-
+import Divider from '@material-ui/core/Divider';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import CookieController from '../../../private/CookieController';
+import EditIcon from '@material-ui/icons/Edit';
+import ScheduleIcon from '@material-ui/icons/Schedule';
 export default function DirectorMenu() {
   const [open, setOpen] = React.useState(false);
-
+  const [openChange, setOpenChange] = React.useState(false);
+  function onExit() {
+    CookieController.eraseCookie('jwt');
+    CookieController.eraseCookie('ssid');
+    window.location.href = '/auth';
+  }
   const handleClick = () => {
     setOpen(!open);
   };
@@ -50,14 +59,6 @@ export default function DirectorMenu() {
           </ListItemIcon>
           <a href='/directorpanel/account'>
             <ListItemText primary='Аккаунт' />
-          </a>
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <SettingsIcon />
-          </ListItemIcon>
-          <a href='/auth'>
-            <ListItemText primary='Настройки' />
           </a>
         </ListItem>
         <ListItem button onClick={handleClick}>
@@ -95,7 +96,28 @@ export default function DirectorMenu() {
             </ListItem>
           </List>
         </Collapse>
-
+        <ListItem
+          button
+          onClick={() => {
+            setOpenChange(!openChange);
+          }}
+        >
+          <ListItemIcon>
+            <EditIcon />
+          </ListItemIcon>
+          <ListItemText primary='Изменить' />
+          {openChange ? <ExpandLess /> : <ExpandMore />}
+        </ListItem>
+        <Collapse in={openChange} timeout='auto' unmountOnExit>
+          <ListItem button>
+            <ListItemIcon>
+              <ScheduleIcon />
+            </ListItemIcon>
+            <a href='/directorpanel/workschedule/change'>
+              <ListItemText primary='График работ' />
+            </a>
+          </ListItem>
+        </Collapse>
         <ListItem button>
           <ListItemIcon>
             <AssignmentIcon />
@@ -109,7 +131,16 @@ export default function DirectorMenu() {
             <AssignmentIcon />
           </ListItemIcon>
           <a href='/directorpanel/nomenclatureReport'>
-            <ListItemText primary='Акт о выполненных работах' />
+            <ListItemText primary='Акт о приёмке выполненных работ' />
+          </a>
+        </ListItem>
+        <Divider />
+        <ListItem button>
+          <ListItemIcon>
+            <ExitToAppIcon style={{color: 'red'}} />
+          </ListItemIcon>
+          <a href='#' onClick={onExit}>
+            <ListItemText style={{color: 'red'}} primary='Выход' />
           </a>
         </ListItem>
       </List>

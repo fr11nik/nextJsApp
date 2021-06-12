@@ -7,6 +7,7 @@ import '../styles/Auth.css';
 import '../styles/ErrorPage.css';
 import '../styles/Menu.css';
 import '../styles/WorkTable.css';
+import '../styles/Print.css';
 import MainLayout from '../components/Layouts/MainLayout';
 
 export default App;

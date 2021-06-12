@@ -19,6 +19,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <script type='text/javascript' src='/static/windowOn.js' />
+          <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
           <NextScript />
         </body>
       </Html>

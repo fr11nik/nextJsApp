@@ -1,25 +1,5 @@
 import Button from '@material-ui/core/Button';
 export default function TableBody(props) {
-  const handleDeleteRow = e => {
-    var fieldID = e.target.name;
-    if (fieldID == undefined || fieldID == '') {
-      fieldID = e.target.parentElement.attributes['name'].value;
-    }
-    props.setDialog(true);
-    console.log(e.target);
-    props.setFieldID(fieldID);
-  };
-  const handleChangeField = e => {
-    var fieldID = e.target.id;
-    if (fieldID == undefined || fieldID == '') {
-      fieldID = e.target.parentElement.attributes['id'].value;
-    }
-    const row = props.bodyList.filter(row => row.id == fieldID);
-    sessionStorage.setItem('fieldID', JSON.stringify(row[0]));
-    if (row != []) {
-      window.location.href = './workschedule/changefield';
-    }
-  };
   props.bodyList.map(row => {
     var b = 2 - row.worktypes.length;
     var a = 2 - row.crossing.length;
@@ -35,14 +15,6 @@ export default function TableBody(props) {
       {props.bodyList.map((row, index) => (
         <>
           <tr className={row.id}>
-            <th rowSpan='2' name={row.id} className='manageRow'>
-              <Button color='secondary' name={row.id} onClick={handleDeleteRow}>
-                Удалить
-              </Button>
-              <Button id={row.id} name={row.id} onClick={handleChangeField}>
-                Изменить
-              </Button>
-            </th>
             <th rowSpan='2'>{index + 1}</th>
             <th rowSpan='2'>{row.taskName}</th>
             <th rowSpan='2'>{row.unit.unitName}</th>
@@ -95,7 +67,6 @@ const Row = (length, taskName, index) => {
   return (
     <>
       <tr className={index}>
-        <th rowSpan='2' className='manageRow'></th>
         <th rowSpan='2'>{index + 1}</th>
         <th rowSpan='2'>{taskName}</th>
         <th rowSpan='2'></th>

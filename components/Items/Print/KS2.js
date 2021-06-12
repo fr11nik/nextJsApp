@@ -6,34 +6,44 @@ export default function KS2Prefab() {
           <tbody>
             <tr>
               <th>Инвестор</th>
-              <th colSpan='2'>
-                <textarea rows={2} type='text'></textarea>
+              <th>
+                <textarea
+                  placeholder='наименование заказчика'
+                  rows={2}
+                  type='text'
+                ></textarea>
               </th>
             </tr>
             <tr>
               <th>Заказчик:</th>
-              <th style={{width: '13%'}}>название компании и адрес</th>
               <th>
-                <textarea rows={2} type='text'></textarea>
+                <textarea
+                  placeholder='название компании и адрес'
+                  rows={2}
+                  type='text'
+                ></textarea>
               </th>
             </tr>
             <tr>
               <th>Подрядчик:</th>
-              <th style={{width: '13%'}}>название компании и адрес</th>
               <th>
-                <textarea rows={2} type='text'></textarea>
+                <textarea
+                  placeholder='Наименование подрядчика'
+                  rows={2}
+                  type='text'
+                ></textarea>
               </th>
             </tr>
             <tr>
               <th>Стройка:</th>
-              <th colSpan='2'>
-                <textarea rows={2} type='text'></textarea>
+              <th>
+                <textarea placeholder='' rows={2} type='text'></textarea>
               </th>
             </tr>
             <tr>
               <th>Объект:</th>
-              <th colSpan='2'>
-                <textarea rows={2} type='text'></textarea>
+              <th>
+                <textarea placeholder='' rows={2} type='text'></textarea>
               </th>
             </tr>
           </tbody>
@@ -52,7 +62,13 @@ export default function KS2Prefab() {
               <th colSpan={2} style={{border: 'none'}}>
                 &nbsp;
               </th>
-              <th>322005</th>
+              <th>
+                <input
+                  style={{border: 'none', backgroundColor: '#f4f6f8'}}
+                  type='text'
+                  placeholder='322055'
+                ></input>
+              </th>
             </tr>
             <tr>
               <th
@@ -61,7 +77,12 @@ export default function KS2Prefab() {
               >
                 по ОКПО
               </th>
-              <th>23196017</th>
+              <th>
+                <input
+                  style={{border: 'none', backgroundColor: '#f4f6f8'}}
+                  type='text'
+                ></input>
+              </th>
             </tr>
             <tr>
               <th
@@ -70,7 +91,12 @@ export default function KS2Prefab() {
               >
                 по ОКПО
               </th>
-              <th>75284587</th>
+              <th>
+                <input
+                  style={{border: 'none', backgroundColor: '#f4f6f8'}}
+                  type='text'
+                ></input>
+              </th>
             </tr>
             <tr>
               <th
@@ -79,7 +105,12 @@ export default function KS2Prefab() {
               >
                 по ОКПО
               </th>
-              <th>&nbsp;</th>
+              <th>
+                <input
+                  style={{border: 'none', backgroundColor: '#f4f6f8'}}
+                  type='text'
+                ></input>
+              </th>
             </tr>
             <tr>
               <th colSpan={2} style={{border: 'none'}}>
@@ -106,14 +137,26 @@ export default function KS2Prefab() {
               >
                 Вид деятельности по ОКДП
               </th>
-              <th>&nbsp;</th>
+              <th>
+                <input
+                  style={{border: 'none', backgroundColor: '#f4f6f8'}}
+                  type='text'
+                  placeholder='ОКДП'
+                ></input>
+              </th>
             </tr>
             <tr>
               <th style={{textAlign: 'right', paddingRight: '4px', border: 'none'}}>
                 Договор подряда
               </th>
               <th style={{paddingRight: '4px'}}>номер</th>
-              <th>36-РЗСК-3-5/0120</th>
+              <th>
+                <input
+                  style={{border: 'none', backgroundColor: '#f4f6f8'}}
+                  type='text'
+                  placeholder='введите номер'
+                ></input>
+              </th>
             </tr>
             <tr>
               <th style={{border: 'none'}}></th>

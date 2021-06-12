@@ -21,7 +21,6 @@ import WithAuth from '../../utils/WithAuth';
 import UniversalFetch from '../../private/queries/univeralQuery';
 import SnackBar from '../../components/Snacks/SnackBar';
 import CookieController from '../../private/CookieController';
-import ButtonC from '../../components/Items/ButtonC';
 const getTotalResultRow = arg => {
   const totalResultRow = {
     totalCount: 0,
@@ -666,7 +665,8 @@ function ColapseTable(props) {
 }
 const nomenclatureReport = props => {
   const workGraphic = JSON.parse(sessionStorage.getItem('tasksList'));
-  const [task, setTask] = React.useState('');
+
+  const [task, setTask] = React.useState(-1);
   const [data, setData] = React.useState([]);
   const [taskNames, setTasks] = React.useState([]);
   const handleChange = async event => {
@@ -730,6 +730,14 @@ const nomenclatureReport = props => {
           workGraphic={workGraphic}
         ></ColapseTable>
       </Paper>
+      <Button
+        color='primary'
+        variant='contained'
+        style={{width: '100%', marginTop: '1rem'}}
+        href={'/directorpanel/nomenclatureReportPrint/' + task}
+      >
+        На печать
+      </Button>
     </DirectorLayout>
   );
 };
