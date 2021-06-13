@@ -219,3 +219,6 @@
 a {
   margin: 5px 5px;
 }
+.MuiTextField-root div > input {
+  width: 100% !important;
+}

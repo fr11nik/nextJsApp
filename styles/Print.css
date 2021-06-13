@@ -31,4 +31,7 @@
   #buttonPrint {
     display: none;
   }
+  .taskTable tbody > tr > th > a {
+    color: #000 !important;
+  }
 }

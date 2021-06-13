@@ -5,11 +5,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
 import PeopleIcon from '@material-ui/icons/People';
 import PersonIcon from '@material-ui/icons/Person';
-import SettingsIcon from '@material-ui/icons/Settings';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import ErrorIcon from '@material-ui/icons/Error';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import Link from '@material-ui/core/Link';
 import Collapse from '@material-ui/core/Collapse';
 import React from 'react';
 import ExpandLess from '@material-ui/icons/ExpandLess';
@@ -22,6 +19,8 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import CookieController from '../../../private/CookieController';
 import EditIcon from '@material-ui/icons/Edit';
 import ScheduleIcon from '@material-ui/icons/Schedule';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
+
 export default function DirectorMenu() {
   const [open, setOpen] = React.useState(false);
   const [openChange, setOpenChange] = React.useState(false);
@@ -94,6 +93,14 @@ export default function DirectorMenu() {
                 <ListItemText primary='Номенклатуру' />
               </a>
             </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <AssignmentTurnedInIcon />
+              </ListItemIcon>
+              <a href='/directorpanel/consumptionrate/add'>
+                <ListItemText primary='Норматив расхода' />
+              </a>
+            </ListItem>
           </List>
         </Collapse>
         <ListItem
@@ -117,6 +124,14 @@ export default function DirectorMenu() {
               <ListItemText primary='График работ' />
             </a>
           </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <AssignmentTurnedInIcon />
+            </ListItemIcon>
+            <a href='/directorpanel/consumptionrate/change'>
+              <ListItemText primary='Норматив расхода' />
+            </a>
+          </ListItem>
         </Collapse>
         <ListItem button>
           <ListItemIcon>
@@ -132,6 +147,14 @@ export default function DirectorMenu() {
           </ListItemIcon>
           <a href='/directorpanel/nomenclatureReport'>
             <ListItemText primary='Акт о приёмке выполненных работ' />
+          </a>
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <AssignmentIcon />
+          </ListItemIcon>
+          <a href='/directorpanel/consumptionrate/all'>
+            <ListItemText primary='Нормативы расходов' />
           </a>
         </ListItem>
         <Divider />

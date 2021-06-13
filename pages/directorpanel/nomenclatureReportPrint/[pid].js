@@ -7,7 +7,6 @@ import Signature from '../../../components/Items/Print/signature';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import Button from '@material-ui/core/Button';
-import SnackBar from '../../../components/Snacks/SnackBar';
 function Alert(props) {
   return <MuiAlert elevation={6} variant='filled' {...props} />;
 }
@@ -16,7 +15,6 @@ const nomenclaturePrintDialog = props => {
   const [snackMessage, setMessage] = React.useState(
     'Данного акта не существует. Возврат к форме акта через 3 секунды!',
   );
-
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -97,7 +95,6 @@ nomenclaturePrintDialog.getInitialProps = async ({query, req}) => {
       },
     )
   ).json();
-
   return {
     data,
     dataIsCorrect: data.length != 0,
