@@ -123,15 +123,7 @@ export default function DirectorMenu() {
             <a href='/directorpanel/workschedule/change'>
               <ListItemText primary='График работ' />
             </a>
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <AssignmentTurnedInIcon />
-            </ListItemIcon>
-            <a href='/directorpanel/consumptionrate/change'>
-              <ListItemText primary='Норматив расхода' />
-            </a>
-          </ListItem>
+          </ListItem>          
         </Collapse>
         <ListItem button>
           <ListItemIcon>
