@@ -28,14 +28,6 @@ export default function AdminMenu(props) {
       <List component='nav'>
         <ListItem button>
           <ListItemIcon>
-            <ShowChartIcon />
-          </ListItemIcon>
-          <a href='/adminpanel/statistic'>
-            <ListItemText primary='Статистика' />
-          </a>
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
             <PeopleIcon />
           </ListItemIcon>
           <a href='/adminpanel/customers'>
@@ -48,14 +40,6 @@ export default function AdminMenu(props) {
           </ListItemIcon>
           <a href='/adminpanel/account'>
             <ListItemText primary='Аккаунт' />
-          </a>
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <SettingsIcon />
-          </ListItemIcon>
-          <a href='/adminpanel/auth'>
-            <ListItemText primary='Настройки' />
           </a>
         </ListItem>
         <ListItem button>

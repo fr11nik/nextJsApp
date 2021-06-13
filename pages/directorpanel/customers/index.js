@@ -36,15 +36,7 @@ const useStyles = makeStyles({
     marginRight: '10px !important',
   },
 });
-const row = [
-  'Взаимодействие',
-  'Аватар',
-  'Фамилия',
-  'Имя',
-  'Email',
-  'Номер телефона',
-  'Роли',
-];
+const row = ['Аватар', 'Фамилия', 'Имя', 'Email', 'Номер телефона', 'Роли'];
 const fields = {
   firstname: 'Имя',
   lastname: 'Фамилия',
@@ -94,20 +86,6 @@ const a = props => {
           key={item.idAuth}
           className={item.idAuth}
         >
-          <TableCell
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-            }}
-          >
-            <Button color='secondary' value={item.idAuth} onClick={getIDUser}>
-              Удалить
-            </Button>
-            <Button value={item.idAuth} onClick={handleOnChangeField}>
-              Изменить
-            </Button>
-          </TableCell>
           <TableCell>
             <Avatar
               className={classes.small}

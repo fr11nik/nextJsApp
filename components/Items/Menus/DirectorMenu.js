@@ -38,14 +38,6 @@ export default function DirectorMenu() {
       <List component='nav'>
         <ListItem button>
           <ListItemIcon>
-            <ShowChartIcon />
-          </ListItemIcon>
-          <a href='/statistic'>
-            <ListItemText primary='Статистика' />
-          </a>
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
             <PeopleIcon />
           </ListItemIcon>
           <a href='/directorpanel/customers'>
@@ -123,7 +115,7 @@ export default function DirectorMenu() {
             <a href='/directorpanel/workschedule/change'>
               <ListItemText primary='График работ' />
             </a>
-          </ListItem>          
+          </ListItem>
         </Collapse>
         <ListItem button>
           <ListItemIcon>

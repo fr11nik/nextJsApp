@@ -25,10 +25,11 @@ const a = props => {
       },
     });
   });
+  window.location.href = '/directorpanel/nomenclatureReport';
   return (
     <DirectorLayout {...props}>
       <Paper className='csspaper'>
-        <canvas id='myChart' width='400' height='100'></canvas>
+        {/* <canvas id='myChart' width='400' height='100'></canvas> */}
       </Paper>
     </DirectorLayout>
   );
