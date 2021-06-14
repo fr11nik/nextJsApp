@@ -51,7 +51,7 @@ export default function Logo(props) {
             );
             setDialog(true);
           } else {
-            window.location.href = 'http://localhost:3000/';
+            window.location.href = 'https://resotstroy.herokuapp.com/';
           }
           rickRollInt = getRandomInt(1, 25);
         }}
