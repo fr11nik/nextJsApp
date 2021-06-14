@@ -1,6 +1,6 @@
 import {useRouter} from 'next/router';
 import withAuth from '../../../utils/WithAuth';
-import DirectorLayout from '../../../components/Layouts/DirectorLayout';
+import AdminLayout from '../../../components/Layouts/AdminLayout';
 import Paper from '@material-ui/core/Paper';
 import {useState} from 'react';
 import TextField from '@material-ui/core/TextField';
@@ -41,7 +41,7 @@ const ChangeUser = props => {
       });
   };
   return (
-    <DirectorLayout {...props}>
+    <AdminLayout {...props}>
       <div className='fieldAdd'>
         <Paper className='csspaper' style={{padding: '15px'}}>
           <p className='pTitle'>Изменить данные пользователя</p>
@@ -141,7 +141,7 @@ const ChangeUser = props => {
           snackMessage={snackMessage}
         ></SnackBar>
       </div>
-    </DirectorLayout>
+    </AdminLayout>
   );
 };
 export default withAuth(ChangeUser, 'admin');
