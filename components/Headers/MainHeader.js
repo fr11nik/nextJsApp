@@ -31,6 +31,7 @@ const MainHeader = props => {
       document.getElementsByClassName('panelPicker')[0].remove();
     }
   });
+
   return (
     <header>
       <div className='header'>

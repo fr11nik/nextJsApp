@@ -7,9 +7,9 @@ export default function MainLayout(props) {
     roles = props.children.props.userData.Info.roles;
   }
 
-  if (props.mainPageRoles) {
-    roles = props.mainPageRoles;
-  }
+  // if (props.mainPageRoles) {
+  //   roles = props.mainPageRoles;
+  // }
   return (
     <div className='css-n6e34j'>
       <MainHeader roles={roles}></MainHeader>
