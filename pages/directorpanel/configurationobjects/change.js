@@ -1,5 +1,5 @@
 import DirectorLayout from '../../../components/Layouts/DirectorLayout';
-import withAuth from '../../../utils/withAuth';
+import withAuth from '../../../utils/WithAuth';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import InputLabel from '@material-ui/core/InputLabel';
