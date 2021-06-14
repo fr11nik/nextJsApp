@@ -459,7 +459,7 @@ function ColapseTable(props) {
     setMessage(res.message);
     setOpen(true);
     var indexes = {};
-    console.log(props.dataState.data);
+
     props.dataState.data.map((item, index1) => {
       item.nomenclatures.map((row, index2) => {
         if (row.id == currentRowID) {

@@ -116,6 +116,14 @@ export default function DirectorMenu() {
               <ListItemText primary='График работ' />
             </a>
           </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <PlusOneIcon />
+            </ListItemIcon>
+            <a href='/directorpanel/configurationobjects/change'>
+              <ListItemText primary='Справочники' />
+            </a>
+          </ListItem>
         </Collapse>
         <ListItem button>
           <ListItemIcon>

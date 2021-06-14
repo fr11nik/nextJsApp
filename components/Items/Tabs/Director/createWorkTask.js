@@ -38,7 +38,7 @@ export default function createWorkTask() {
     setPersonalCount(event.target.value);
   };
   const handleSetWorkType = event => {
-    console.log(event.target);
+    
     setWorkType(event.target.value);
   };
   const handleSetTaskName = event => {

@@ -1,5 +1,5 @@
 export default function graphicTableBody(props) {
-  console.log(props.bodyList);
+ 
   for (let i = 0; i < props.bodyList.length; i++) {
     if (props.bodyList[i].crossing.length == 0) {
       props.bodyList[i].crossing.push('');

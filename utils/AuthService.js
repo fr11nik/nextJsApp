@@ -16,7 +16,7 @@ export default class AuthService {
       },
     });
     const res = await response.json();
-    console.log(res);
+
     if (response.status != 200) {
       this.message = res.message;
       return false;

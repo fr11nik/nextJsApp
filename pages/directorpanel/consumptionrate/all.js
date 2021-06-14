@@ -19,7 +19,7 @@ import CookieController from '../../../private/CookieController';
 
 const DependedStandards = props => {
   const [data, setData] = React.useState(props.consumptionrate);
-  console.log(data);
+
   const workTypeList = JSON.parse(sessionStorage.getItem('workTypeList'));
   const [open, setOpen] = React.useState(false);
   const [snackMessage, setMessage] = React.useState('');

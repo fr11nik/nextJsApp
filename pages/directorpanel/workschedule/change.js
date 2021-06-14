@@ -16,7 +16,7 @@ function Alert(props) {
 }
 function ChangeTaskName(props) {
   const schedules = props.schedules;
-  console.log(schedules);
+
   if (schedules != undefined && schedules != [] && schedules.length != 0) {
     const [open, setOpen] = useState(false);
     const [snackMessage, setMessage] = useState('');
@@ -73,12 +73,11 @@ function ChangeTaskName(props) {
             name={scheduleName.scheduleName.toString()}
             defaultValue={''}
             onChange={e => {
-              console.log(e.target);
               setScheduleName({id: e.target.value, scheduleName: e.target.name});
               const name = schedules.filter(
                 schedule => schedule.id == e.target.value,
               )[0].scheduleName;
-              console.log(name);
+
               setNewSchedule({id: e.target.value, scheduleName: name});
             }}
           >

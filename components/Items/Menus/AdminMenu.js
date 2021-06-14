@@ -50,14 +50,7 @@ export default function AdminMenu(props) {
             <ListItemText primary='Добавить пользователя' />
           </a>
         </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <ErrorIcon />
-          </ListItemIcon>
-          <a href='/adminpanel/auth'>
-            <ListItemText primary='Ошибки в системе' />
-          </a>
-        </ListItem>
+
         <Divider />
         <ListItem button>
           <ListItemIcon>

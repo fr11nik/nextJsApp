@@ -14,7 +14,7 @@ export default function DirectorPanel(props) {
       sessionStorage.setItem('tasksList', JSON.stringify(tasksList));
     });
     GetWorkTypeAndUnitsNames().then(workTypeAndUnits => {
-      console.log(workTypeAndUnits);
+      
       sessionStorage.setItem(
         'workTypeList',
         JSON.stringify(workTypeAndUnits.workTypes),
