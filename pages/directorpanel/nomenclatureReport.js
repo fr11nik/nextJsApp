@@ -21,6 +21,7 @@ import WithAuth from '../../utils/WithAuth';
 import UniversalFetch from '../../private/queries/univeralQuery';
 import SnackBar from '../../components/Snacks/SnackBar';
 import CookieController from '../../private/CookieController';
+import TaskOnReady from '../../private/handles/tasksOnReady';
 const getTotalResultRow = arg => {
   const totalResultRow = {
     totalCount: 0,
@@ -37,6 +38,7 @@ const getTotalResultRow = arg => {
   });
   return totalResultRow;
 };
+
 function Row1(props) {
   const {row} = props;
   const [open, setOpen] = React.useState(false);
