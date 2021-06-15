@@ -375,7 +375,8 @@ function ColapseTable(props) {
     setTask(e.target.value);
     const works = await (
       await fetch(
-        'https://resotstroy-api.herokuapp.com/node-cm/workschedule/getTaskNames/' + e.target.value,
+        'https://resotstroy-api.herokuapp.com/node-cm/workschedule/getTaskNames/' +
+          e.target.value,
         {
           headers: {
             Accept: 'application/json',
@@ -443,14 +444,17 @@ function ColapseTable(props) {
   const [openDialogRemove, setDialogRemove] = React.useState(false);
   const handleRemoveNomenclatureAccept = async () => {
     const res = await (
-      await fetch('https://resotstroy-api.herokuapp.com/node-cm/nomenclature/' + currentRowID, {
-        method: 'DELETE',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': CookieController.readCookie('jwt'),
+      await fetch(
+        'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/' + currentRowID,
+        {
+          method: 'DELETE',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            'x-acces-token': CookieController.readCookie('jwt'),
+          },
         },
-      })
+      )
     ).json();
     setMessage(res.message);
     setOpen(true);
@@ -701,7 +705,8 @@ const nomenclatureReport = props => {
     });
     const res = await (
       await fetch(
-        'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/getAll/' + event.target.value,
+        'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/getAll/' +
+          event.target.value,
         {
           headers: {
             Accept: 'application/json',
