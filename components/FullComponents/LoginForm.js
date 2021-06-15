@@ -77,6 +77,7 @@ export default function LoginForm(props) {
               className='auth grid-spacing15 btn570'
               variant='contained'
               color='primary'
+              style={{cursor: 'pointer'}}
               onClick={onSignIn}
             >
               Войти
