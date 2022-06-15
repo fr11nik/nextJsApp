@@ -1,0 +1,169 @@
+.menuContainer {
+  /* width: 100%;
+  max-width: min-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  position: fixed; */
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  box-shadow: none;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  z-index: 1200;
+  position: fixed;
+  outline: 0px;
+  left: 0px;
+  right: auto;
+  width: 280px;
+  height: 100% !important;
+  top: 70px !important;
+  background-color: #fff;
+}
+.menuHeader {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.paperHeader {
+  height: calc(100% - 64px);
+}
+.avatarUser {
+  width: 64px !important;
+  height: 64px !important;
+}
+h5 {
+  font-size: 16px;
+}
+.panelMenu {
+  color: #546f7b;
+}
+.Tab {
+  padding-left: 300px;
+  padding-right: 50px;
+}
+
+.css133133__inner {
+  padding: 15px 30px;
+}
+.css133133__inner div {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: max-content;
+}
+.css133133__inner p {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  padding-bottom: 15px;
+  color: #252525;
+}
+.css344001 {
+  width: 100%;
+}
+.block2 {
+  display: flex;
+}
+.roleInput {
+  width: 100%;
+}
+.btnCreateUser {
+  width: 100%;
+}
+.MuiCheckbox-colorSecondary.Mui-checked {
+  color: #3f51b5 !important;
+}
+.dataField {
+  width: 100%;
+}
+/* .fieldAdd div {
+  display: inline-block;
+} */
+.css-0jgfh {
+  padding-top: 70px;
+}
+.css1__inner {
+  padding: 1rem 35px;
+}
+.csspaper {
+  padding: 35px;
+}
+.csspaper div {
+  margin: 10px 0;
+}
+.csspaper label {
+  margin-left: 10px;
+}
+.menuHamburger {
+  position: fixed !important;
+  z-index: 1301;
+  margin: 17px 0 0 35px !important;
+}
+@media (min-width: 1280px) {
+  .css1-sfdlk {
+    padding-left: 280px;
+  }
+  .menuHamburger {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1280px) {
+  .logo-wrapper {
+    padding: 25px 90px;
+  }
+
+  /* .openMenu {
+    display: block !important;
+  }
+  .closeMenu {
+    display: none !important;
+  } */
+  .menuContainer {
+    display: none;
+  }
+  .menuHamburger {
+    display: block;
+  }
+}
+.swipeMenu {
+  padding-top: 150px;
+}
+.btnshow {
+  display: inline-block;
+}
+.btnhide {
+  display: none;
+}
+/*  UL SELECT DROPDOWN COMPONENT*/
+@media (max-width: 760px) {
+  /* .MuiPaper-rounded ul > li {
+    font-size: 10px;
+    font-weight: 700;
+  } */
+  .css1__inner {
+    padding: 1rem 10px;
+  }
+  .csspaper {
+    padding: 15px;
+  }
+}
+.buttonChange {
+  margin-left: 10px !important;
+  background-color: #252525 !important;
+  color: #fff !important;
+}
+@media (max-width: 391px) {
+  .buttonChange {
+    margin-left: 0px !important;
+    margin-top: 10px !important;
+  }
+}
+

@@ -1,6 +1,11 @@
 import Document, {Html, Head, Main, NextScript} from 'next/document';
-
+import useScript from '../static/useScript';
+import loadJs from 'loadjs';
 class MyDocument extends Document {
+  // componentDidMount() {
+  //   loadJs(['/static/windowOn.js'], 'bebe');
+  //   loadJs.ready('bebe', () => alert('bruh'));
+  // }
   render() {
     return (
       <Html>
@@ -13,6 +18,8 @@ class MyDocument extends Document {
         </Head>
         <body>
           <Main />
+          <script type='text/javascript' src='/static/windowOn.js' />
+          <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
           <NextScript />
         </body>
       </Html>
