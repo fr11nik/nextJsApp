@@ -21,25 +21,22 @@ const t = props => {
   };
   const handleAdd = async (fieldName, link) => {
     const token = CookieController.readCookie('jwt');
-    const res = await fetch(
-      'https://resotstroy-api.herokuapp.com/node-cm/' + link + '/create',
-      {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': token,
-        },
-        body: JSON.stringify({
-          [fieldName]: state,
-        }),
+    const res = await fetch('http://localhost:3001/node-cm/' + link + '/create', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-acces-token': token,
       },
-    );
+      body: JSON.stringify({
+        [fieldName]: state,
+      }),
+    });
     const response = await res.json();
     if (res.ok) {
-      GetTaskNames().then(tasksList => {
-        sessionStorage.setItem('tasksList', JSON.stringify(tasksList));
-      });
+      const tasksList = await GetTaskNames();
+      sessionStorage.setItem('tasksList', JSON.stringify(tasksList));
+
       GetWorkTypeAndUnitsNames().then(workTypeAndUnits => {
         sessionStorage.setItem(
           'workTypeList',

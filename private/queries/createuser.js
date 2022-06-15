@@ -12,7 +12,7 @@ const createUser = ({
 }) => {
   return new Promise((resolve, reject) => {
     const token = CookieController.readCookie('jwt');
-    fetch('https://resotstroy-api.herokuapp.com/node-cm/createUser', {
+    fetch('http://localhost:3001/node-cm/createUser', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

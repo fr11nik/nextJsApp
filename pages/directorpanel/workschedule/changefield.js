@@ -286,16 +286,13 @@ const ChangeField = props => {
 export default WithAuth(ChangeField, 'director');
 ChangeField.getInitialProps = async ({req}) => {
   const res = await (
-    await fetch(
-      'https://resotstroy-api.herokuapp.com/node-cm/workschedule/schedules/get',
-      {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': req.cookies.jwt,
-        },
+    await fetch('http://localhost:3001/node-cm/workschedule/schedules/get', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-acces-token': req.cookies.jwt,
       },
-    )
+    })
   ).json();
   return {
     schedules: res,

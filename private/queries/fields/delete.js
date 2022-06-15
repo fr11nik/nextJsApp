@@ -8,7 +8,7 @@ const deleteField = scheduleID => {
       scheduleID,
     });
 
-    fetch('https://resotstroy-api.herokuapp.com/node-cm/workschedule/delete', {
+    fetch('http://localhost:3001/node-cm/workschedule/delete', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

@@ -153,7 +153,7 @@ ChangeUser.getInitialProps = async ({query, req}) => {
   const {pid} = query;
 
   const response = await (
-    await fetch('https://resotstroy-api.herokuapp.com/api/user/get/' + pid, {
+    await fetch('http://localhost:3001/api/user/get/' + pid, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

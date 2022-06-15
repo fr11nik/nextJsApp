@@ -294,7 +294,7 @@ function ColapseTable(props) {
         unitID: currentRow.row.unit.id,
         workscheduleID: currentRow.workscheduleID,
       },
-      'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/update',
+      'http://localhost:3001/node-cm/nomenclature/update',
       'POST',
     )
       .then(res => {
@@ -348,7 +348,7 @@ function ColapseTable(props) {
         unitID: currentRow.row.unit.id,
         workscheduleID: currentRow.workscheduleID,
       },
-      'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/add',
+      'http://localhost:3001/node-cm/nomenclature/add',
       'POST',
     )
       .then(res => {
@@ -375,8 +375,7 @@ function ColapseTable(props) {
     setTask(e.target.value);
     const works = await (
       await fetch(
-        'https://resotstroy-api.herokuapp.com/node-cm/workschedule/getTaskNames/' +
-          e.target.value,
+        'http://localhost:3001/node-cm/workschedule/getTaskNames/' + e.target.value,
         {
           headers: {
             Accept: 'application/json',
@@ -444,17 +443,14 @@ function ColapseTable(props) {
   const [openDialogRemove, setDialogRemove] = React.useState(false);
   const handleRemoveNomenclatureAccept = async () => {
     const res = await (
-      await fetch(
-        'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/' + currentRowID,
-        {
-          method: 'DELETE',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'x-acces-token': CookieController.readCookie('jwt'),
-          },
+      await fetch('http://localhost:3001/node-cm/nomenclature/' + currentRowID, {
+        method: 'DELETE',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'x-acces-token': CookieController.readCookie('jwt'),
         },
-      )
+      })
     ).json();
     setMessage(res.message);
     setOpen(true);
@@ -471,7 +467,6 @@ function ColapseTable(props) {
       delete prevState[indexes.index1].nomenclatures[indexes.index2];
       return prevState;
     });
-    //document.getElementsByClassName(currentRowID).item(0).innerHTML = '';
   };
   const changeNomenclatureComponent = (
     <Paper className='csspaper' style={{borderRadius: '0px', boxShadow: 'none'}}>
@@ -665,31 +660,16 @@ function ColapseTable(props) {
     </>
   );
 }
-const nomenclatureReport = props => {
-  var workGraphic = JSON.parse(sessionStorage.getItem('tasksList'));
-  GetTaskNames().then(tasksList => {
-    workGraphic = tasksList;
-  });
-  fetch('https://resotstroy-api.herokuapp.com/node-cm/workschedule/schedules/get', {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'x-acces-token': CookieController.readCookie('jwt'),
-    },
-  }).then(res => {
-    res.json().then(data => {
-      workGraphic = data;
-    });
-  });
-
+const nomenclatureReport = async props => {
   const [task, setTask] = React.useState(-1);
   const [data, setData] = React.useState([]);
   const [taskNames, setTasks] = React.useState([]);
+  const workGraphic = await GetTaskNames();
   const handleChange = async event => {
     setTask(event.target.value);
     const resTask = await (
       await fetch(
-        'https://resotstroy-api.herokuapp.com/node-cm/workschedule/getTaskNames/' +
+        'http://localhost:3001/node-cm/workschedule/getTaskNames/' +
           event.target.value,
         {
           headers: {
@@ -705,8 +685,7 @@ const nomenclatureReport = props => {
     });
     const res = await (
       await fetch(
-        'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/getAll/' +
-          event.target.value,
+        'http://localhost:3001/node-cm/nomenclature/getAll/' + event.target.value,
         {
           headers: {
             Accept: 'application/json',
@@ -720,6 +699,7 @@ const nomenclatureReport = props => {
       return res;
     });
   };
+
   return (
     <DirectorLayout {...props}>
       <Paper className='csspaper' style={{marginBottom: '10px'}}>
@@ -757,4 +737,9 @@ const nomenclatureReport = props => {
     </DirectorLayout>
   );
 };
-export default WithAuth(nomenclatureReport, 'director');
+const nomenclatureReport1 = async props => {
+  return <DirectorLayout {...props}>F</DirectorLayout>;
+};
+
+export default WithAuth(nomenclatureReport1, 'director');
+// export default WithAuth(nomenclatureReport1, 'director');

@@ -14,7 +14,7 @@ const updateUser = ({
 }) => {
   return new Promise((resolve, reject) => {
     const token = CookieController.readCookie('jwt');
-    fetch('https://resotstroy-api.herokuapp.com/node-cm/user/update', {
+    fetch('http://localhost:3001/node-cm/user/update', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

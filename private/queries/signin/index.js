@@ -3,7 +3,7 @@ import CookieController from '../../CookieController';
 
 const signIn = ({username, password}) => {
   return new Promise((resolve, reject) => {
-    fetch('https://resotstroy-api.herokuapp.com/api/user/signin', {
+    fetch('http://localhost:3001/api/user/signin', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

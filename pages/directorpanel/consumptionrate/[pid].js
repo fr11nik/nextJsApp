@@ -52,8 +52,7 @@ DependedStandards.getInitialProps = async ({query, req}) => {
 
   const response = await (
     await fetch(
-      'https://resotstroy-api.herokuapp.com/node-cm/consumptionrate/get/byWorkType/' +
-        pid,
+      'http://localhost:3001/node-cm/consumptionrate/get/byWorkType/' + pid,
       {
         headers: {
           Accept: 'application/json',

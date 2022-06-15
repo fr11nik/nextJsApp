@@ -42,8 +42,7 @@ export default function UserAccount(props) {
   const handleUpdatePassword = () => {
     UniversalFetch(
       passwords,
-      'https://resotstroy-api.herokuapp.com/node-cm/user/changePassword/' +
-        user.idAuth,
+      'http://localhost:3001/node-cm/user/changePassword/' + user.idAuth,
       'POST',
     )
       .then(res => {

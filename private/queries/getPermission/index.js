@@ -3,7 +3,7 @@ import ApiMessageHandler from '../../handles/MessageHandler';
 const GetPermission = async pageName => {
   return new Promise((resolve, reject) => {
     const cookies = new Cookies();
-    fetch('https://resotstroy-api.herokuapp.com/' + pageName, {
+    fetch('http://localhost:3001/' + pageName, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

@@ -26,7 +26,7 @@ const DependedStandards = props => {
   };
   const handleAdd = async () => {
     const response = await (
-      await fetch('https://resotstroy-api.herokuapp.com/node-cm/consumptionrate', {
+      await fetch('http://localhost:3001/node-cm/consumptionrate', {
         method: 'POST',
         body: JSON.stringify({
           name: currentRow.name,

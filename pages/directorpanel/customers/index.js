@@ -104,17 +104,14 @@ const a = props => {
     }),
   );
   const handleDeleteUser = async e => {
-    const response = await fetch(
-      'https://resotstroy-api.herokuapp.com/node-cm/user/' + fieldID,
-      {
-        method: 'DELETE',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': CookieController.readCookie('jwt'),
-        },
+    const response = await fetch('http://localhost:3001/node-cm/user/' + fieldID, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-acces-token': CookieController.readCookie('jwt'),
       },
-    );
+    });
     const res = await response.json();
     document.getElementsByClassName(fieldID).item(0).innerHTML = '';
     setDialog(false);
@@ -251,7 +248,7 @@ const a = props => {
 export default withAuth(a, 'director');
 a.getInitialProps = async ({req}) => {
   const result = await (
-    await fetch('https://resotstroy-api.herokuapp.com/api/users/getAll', {
+    await fetch('http://localhost:3001/api/users/getAll', {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

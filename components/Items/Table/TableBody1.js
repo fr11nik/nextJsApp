@@ -20,7 +20,7 @@ export default function TableBody(props) {
     setdialogTitle(e.target.innerHTML);
     const response = await (
       await fetch(
-        'https://resotstroy-api.herokuapp.com/node-cm/consumptionrate/get/byWorkType/' +
+        'http://localhost:3001/node-cm/consumptionrate/get/byWorkType/' +
           e.target.name,
         {
           headers: {

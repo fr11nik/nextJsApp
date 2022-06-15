@@ -39,8 +39,7 @@ function ChangeTaskName(props) {
       const id = parseInt(newschedule.id);
 
       const res = await fetch(
-        'https://resotstroy-api.herokuapp.com/node-cm/workschedule/schedules/update/' +
-          id,
+        'http://localhost:3001/node-cm/workschedule/schedules/update/' + id,
         {
           method: 'POST',
           body: JSON.stringify({scheduleName: newschedule.scheduleName}),
@@ -128,16 +127,13 @@ function ChangeTaskName(props) {
 export default withAuth(ChangeTaskName, 'director');
 ChangeTaskName.getInitialProps = async ({req}) => {
   const res = await (
-    await fetch(
-      'https://resotstroy-api.herokuapp.com/node-cm/workschedule/schedules/get',
-      {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': req.cookies.jwt,
-        },
+    await fetch('http://localhost:3001/node-cm/workschedule/schedules/get', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-acces-token': req.cookies.jwt,
       },
-    )
+    })
   ).json();
   return {
     schedules: res,

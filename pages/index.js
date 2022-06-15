@@ -81,7 +81,7 @@ const MainPage = props => {
 export default MainPage;
 MainPage.getInitialProps = async ({req}) => {
   const res = await (
-    await fetch('https://resotstroy-api.herokuapp.com/api/user/roles', {
+    await fetch('http://localhost:3001/api/user/roles', {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

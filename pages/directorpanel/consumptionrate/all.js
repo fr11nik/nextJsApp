@@ -34,17 +34,14 @@ const DependedStandards = props => {
   });
   const handleRemove = async e => {
     const response = await (
-      await fetch(
-        'https://resotstroy-api.herokuapp.com/node-cm/consumptionrate/' + id,
-        {
-          method: 'DELETE',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'x-acces-token': CookieController.readCookie('jwt'),
-          },
+      await fetch('http://localhost:3001/node-cm/consumptionrate/' + id, {
+        method: 'DELETE',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'x-acces-token': CookieController.readCookie('jwt'),
         },
-      )
+      })
     ).json();
     const index = {
       indexFirst: -1,
@@ -69,23 +66,19 @@ const DependedStandards = props => {
   };
   const handleChange = async e => {
     const response = await (
-      await fetch(
-        'https://resotstroy-api.herokuapp.com/node-cm/consumptionrate/' +
-          currentRow.id,
-        {
-          method: 'PUT',
-          body: JSON.stringify({
-            name: currentRow.name,
-            count: parseInt(currentRow.count),
-            workTypeID: parseInt(currentRow.workTypeID),
-          }),
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'x-acces-token': CookieController.readCookie('jwt'),
-          },
+      await fetch('http://localhost:3001/node-cm/consumptionrate/' + currentRow.id, {
+        method: 'PUT',
+        body: JSON.stringify({
+          name: currentRow.name,
+          count: parseInt(currentRow.count),
+          workTypeID: parseInt(currentRow.workTypeID),
+        }),
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'x-acces-token': CookieController.readCookie('jwt'),
         },
-      )
+      })
     ).json();
     setMessage(response.message);
     setOpen(true);
@@ -263,16 +256,13 @@ DependedStandards.getInitialProps = async ({query, req}) => {
   const {pid} = query;
 
   const response = await (
-    await fetch(
-      'https://resotstroy-api.herokuapp.com/node-cm/consumptionrate/get/all',
-      {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': req.cookies.jwt,
-        },
+    await fetch('http://localhost:3001/node-cm/consumptionrate/get/all', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-acces-token': req.cookies.jwt,
       },
-    )
+    })
   ).json();
 
   return {

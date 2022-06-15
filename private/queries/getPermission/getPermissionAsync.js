@@ -1,7 +1,7 @@
 import ApiMesageHandlerAsync from '../../handles/AsyncMessageHandler';
 
 const GetPermissionAsync = async (pageName, token) => {
-  const res = await fetch('https://resotstroy-api.herokuapp.com/' + pageName, {
+  const res = await fetch('http://localhost:3001/' + pageName, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

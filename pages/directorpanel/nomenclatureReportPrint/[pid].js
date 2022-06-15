@@ -83,17 +83,13 @@ const nomenclaturePrintDialog = props => {
 export default WithAuth(nomenclaturePrintDialog, 'director');
 nomenclaturePrintDialog.getInitialProps = async ({query, req}) => {
   const data = await (
-    await fetch(
-      'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/getAll/' +
-        query.pid,
-      {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': req.cookies.jwt,
-        },
+    await fetch('http://localhost:3001/node-cm/nomenclature/getAll/' + query.pid, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-acces-token': req.cookies.jwt,
       },
-    )
+    })
   ).json();
   return {
     data,

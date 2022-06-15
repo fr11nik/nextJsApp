@@ -35,8 +35,7 @@ function CollapsibleTable1(props) {
     setTask(e.target.value);
     const works = await (
       await fetch(
-        'https://resotstroy-api.herokuapp.com/node-cm/workschedule/getTaskNames/' +
-          e.target.value,
+        'http://localhost:3001/node-cm/workschedule/getTaskNames/' + e.target.value,
         {
           headers: {
             Accept: 'application/json',
@@ -61,7 +60,7 @@ function CollapsibleTable1(props) {
         unitID: currentRow.row.unit.id,
         workscheduleID: currentRow.workscheduleID,
       },
-      'https://resotstroy-api.herokuapp.com/node-cm/nomenclature/add',
+      'http://localhost:3001/node-cm/nomenclature/add',
       'POST',
     )
       .then(res => {
@@ -211,16 +210,13 @@ const AddNomenclature = props => {
 export default WithAuth(AddNomenclature, 'director');
 AddNomenclature.getInitialProps = async ({req}) => {
   const taskNames = await (
-    await fetch(
-      'https://resotstroy-api.herokuapp.com/node-cm/workschedule/getTaskNames/1',
-      {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': req.cookies.jwt,
-        },
+    await fetch('http://localhost:3001/node-cm/workschedule/getTaskNames/1', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-acces-token': req.cookies.jwt,
       },
-    )
+    })
   ).json();
   return {
     taskNames,

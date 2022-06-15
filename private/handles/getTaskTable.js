@@ -4,7 +4,7 @@ export default function GetTaskTable(scheduleID) {
   return new Promise(async (resolve, reject) => {
     const jwt = CookieController.readCookie('jwt');
     const res = await fetch(
-      'https://resotstroy-api.herokuapp.com/node-cm/workschedule/scheduleTask/get',
+      'http://localhost:3001/node-cm/workschedule/scheduleTask/get',
       {
         method: 'POST',
         headers: {

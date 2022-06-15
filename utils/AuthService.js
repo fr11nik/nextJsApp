@@ -1,11 +1,12 @@
 export default class AuthService {
-  serverUrl = 'https://resotstroy-api.herokuapp.com';
+  serverUrl = 'http://localhost:3001';
   message;
   ssid;
   constructor(token) {
     this.state = token.jwt;
     this.ssid = token.ssid;
   }
+  
   async loggedIn(roleName) {
     const link = this.serverUrl + '/' + roleName + 'panel';
     const response = await fetch(link, {

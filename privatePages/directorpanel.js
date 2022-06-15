@@ -6,15 +6,13 @@ import TabLayout from '../components/Layouts/TabLayout';
 import GetTaskNames from '../private/handles/getTaskNames';
 import GetWorkTypeAndUnitsNames from '../private/handles/getUnitsAndWorkTypeNames';
 
-export default function DirectorPanel(props) {
+export default async function DirectorPanel(props) {
   const [Page, setPage] = useState(null);
 
   if (sessionStorage.getItem('tasksList') == null) {
-    GetTaskNames().then(tasksList => {
-      sessionStorage.setItem('tasksList', JSON.stringify(tasksList));
-    });
+    const tasksList = await GetTaskNames();
+    sessionStorage.setItem('tasksList', JSON.stringify(tasksList));
     GetWorkTypeAndUnitsNames().then(workTypeAndUnits => {
-      
       sessionStorage.setItem(
         'workTypeList',
         JSON.stringify(workTypeAndUnits.workTypes),

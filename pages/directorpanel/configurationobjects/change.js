@@ -43,18 +43,15 @@ function ConfigurationObjects(props) {
     ///node-cm/unit/:id
     const id = parseInt(newUnitName.id);
 
-    const res = await fetch(
-      'https://resotstroy-api.herokuapp.com/node-cm/unit/' + id,
-      {
-        method: 'PUT',
-        body: JSON.stringify({unitName: newUnitName.unitName}),
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': CookieController.readCookie('jwt'),
-        },
+    const res = await fetch('http://localhost:3001/node-cm/unit/' + id, {
+      method: 'PUT',
+      body: JSON.stringify({unitName: newUnitName.unitName}),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-acces-token': CookieController.readCookie('jwt'),
       },
-    );
+    });
     if (res.status != 200) {
       setseverity('error');
     } else {
@@ -77,18 +74,15 @@ function ConfigurationObjects(props) {
   const handleUpdateWorkType = async () => {
     ///node-cm/workType/:id
     const id = parseInt(newworkType.id);
-    const res = await fetch(
-      'https://resotstroy-api.herokuapp.com/node-cm/workType/' + id,
-      {
-        method: 'PUT',
-        body: JSON.stringify({typeName: newworkType.typeName}),
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': CookieController.readCookie('jwt'),
-        },
+    const res = await fetch('http://localhost:3001/node-cm/workType/' + id, {
+      method: 'PUT',
+      body: JSON.stringify({typeName: newworkType.typeName}),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-acces-token': CookieController.readCookie('jwt'),
       },
-    );
+    });
     if (res.status != 200) {
       setseverity('error');
     } else {
@@ -217,16 +211,13 @@ function ConfigurationObjects(props) {
 export default withAuth(ConfigurationObjects, 'director');
 ConfigurationObjects.getInitialProps = async ({req}) => {
   const res = await (
-    await fetch(
-      'https://resotstroy-api.herokuapp.com/node-cm/workschedule/unitsAndWorkType/get',
-      {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'x-acces-token': req.cookies.jwt,
-        },
+    await fetch('http://localhost:3001/node-cm/workschedule/unitsAndWorkType/get', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-acces-token': req.cookies.jwt,
       },
-    )
+    })
   ).json();
   var object = {
     workTypes: [],
